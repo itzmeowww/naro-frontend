@@ -39,6 +39,9 @@ const addItem = () => {
     <div class="flex gap-5">
       <label>
         <input v-model="newItemName" type="text" class="input" placeholder="名前" />
+        <label className="label">
+          <span v-if="newItemName.length === 0" className="label-text-alt">名前を書いて！</span>
+        </label>
       </label>
       <label>
         <input v-model="newItemPrice" type="number" class="input" placeholder="価格" />
