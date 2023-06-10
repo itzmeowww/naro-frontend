@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 interface Task {
   name: string
-  status: boolean
+  completed: boolean
   id: number
 }
 
@@ -12,12 +12,12 @@ const newTaskName = ref('')
 
 const addTask = () => {
   if (newTaskName.value !== '')
-    tasks.value.push({ name: newTaskName.value, status: false, id: tasks.value.length })
+    tasks.value.push({ name: newTaskName.value, completed: false, id: tasks.value.length })
   newTaskName.value = ''
 }
 
 const toggleTask = (idx: number) => {
-  tasks.value[idx].status = !tasks.value[idx].status
+  tasks.value[idx].completed = !tasks.value[idx].completed
 }
 </script>
 
@@ -26,7 +26,7 @@ const toggleTask = (idx: number) => {
     <header>完了済み</header>
     <ul>
       <li
-        v-for="task in tasks.filter((x) => x.status)"
+        v-for="task in tasks.filter((x) => x.completed)"
         :key="task.name"
         @click="toggleTask(task.id)"
       >
@@ -39,7 +39,7 @@ const toggleTask = (idx: number) => {
     <header>未完</header>
     <ul>
       <li
-        v-for="task in tasks.filter((x) => !x.status)"
+        v-for="task in tasks.filter((x) => !x.completed)"
         :key="task.name"
         @click="toggleTask(task.id)"
       >
