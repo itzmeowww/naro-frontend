@@ -21,25 +21,29 @@ const addItem = () => {
 </script>
 
 <template>
-  <div>
-    <div>ItemList</div>
-    <ul>
-      <li v-for="item in items" :key="item.name" :class="{ over500: item.price >= 500 }">
-        <div>名前: {{ item.name }}</div>
-        <div>{{ item.price }} 円</div>
-        <div v-if="item.price >= 10000">高額商品</div>
+  <div class="bg-base-200 p-5 rounded-box">
+    <header class="font-bold badge badge-neutral text-neutral-content">Item List</header>
+    <ul class="flex flex-col gap-2 my-3">
+      <li v-for="item in items" :key="item.name" :class="{ over500: item.price >= 500 }" class="">
+        <div class="join">
+          <div class="join-item bg-base-100 text-base-content px-2">
+            {{ item.name }}
+          </div>
+          <div class="join-item bg-base-100 text-base-content px-2">{{ item.price }} 円</div>
+          <div v-if="item.price >= 10000" class="join-item bg-warning text-warning-content px-2">
+            高額商品
+          </div>
+        </div>
       </li>
     </ul>
-    <div>
+    <div class="flex gap-5">
       <label>
-        名前
-        <input v-model="newItemName" type="text" />
+        <input v-model="newItemName" type="text" class="input" placeholder="名前" />
       </label>
       <label>
-        価格
-        <input v-model="newItemPrice" type="number" />
+        <input v-model="newItemPrice" type="number" class="input" placeholder="価格" />
       </label>
-      <button @click="addItem">add</button>
+      <button @click="addItem" class="btn btn-outline">add</button>
     </div>
   </div>
 </template>

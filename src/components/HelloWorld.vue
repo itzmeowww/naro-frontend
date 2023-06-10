@@ -9,8 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
+  <div class="w-screen gap-3 flex flex-col justify-center items-center mx-auto max-w-4xl p-5 py-12">
     <ClickCounter />
     <ItemList />
     <TodoList />
