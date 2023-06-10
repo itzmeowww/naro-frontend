@@ -5,7 +5,7 @@ export default {
     extend: {}
   },
   daisyui: {
-    themes: false
+    themes: ['emerald']
   },
   plugins: [require('daisyui')]
 }
